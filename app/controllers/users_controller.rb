@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+
+  before_action :prevent_logged_in_user_access
   def new
     @user = User.new
   end
