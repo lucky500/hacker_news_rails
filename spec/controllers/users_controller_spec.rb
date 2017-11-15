@@ -11,7 +11,7 @@ RSpec.describe UsersController, type: :controller do
 
   # describe "GET #create" do
   #   it "returns http success" do
-  #     get :create
+  #     get :create, params: { user: { username: "name", password: "password" } }
   #     expect(response).to have_http_status(:success)
   #   end
   # end
