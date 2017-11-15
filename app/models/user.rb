@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
             uniqueness: { case_sensitive: false }
   validates :password,
             length: { minimum: 8 }
+
+  def owns_link?(link)
+    self == link.user
+  end
 end

@@ -23,6 +23,14 @@ class LinksController < ApplicationController
   end
 
   def edit
+    @link = Link.find_by(id: params[:id])
+
+    if current_user.owns_link?(link)
+      @link
+      #@link = link
+    else
+      redirect_to root_path, notice: 'Not authorized to edit this link'
+    end
   end
 
   private
