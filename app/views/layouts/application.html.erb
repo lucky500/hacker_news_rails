@@ -9,6 +9,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <main>
+        <% if flash[:notice] %>
+          <p class="alert alert-info">
+            <%= flash[:notice] %>
+          </p>
+        <% end %>
+
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>

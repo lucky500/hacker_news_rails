@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
+  has_many :links, dependent: :destroy
   has_secure_password
-  
+
   validates :username,
             :presence => true,
             length: { minimum: 3},
