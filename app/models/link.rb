@@ -1,6 +1,7 @@
 class Link < ActiveRecord::Base
   belongs_to :user
   has_many :comments
+  has_many :votes
 
   validates :title,
             presence: true,
@@ -12,5 +13,13 @@ class Link < ActiveRecord::Base
 
   def comment_count
     comments.length
+  end
+
+  def upvotes
+    votes.sum(:upvote)
+  end
+
+  def downvotes
+    votes.sum(:downvote)
   end
 end
