@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   end
 
   get '/comments' => 'comments#index'
+
+  get '/newest' => 'links#newest'
   
   resources :sessions, only: [:new, :create] do
     delete :destroy, on: :collection
